@@ -1,9 +1,14 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {updateCost} from '../../ducks/reducer'
 
 class WizardSix extends Component {
 
     render(){
+
+        const { updateCost } = this.props;
+
         return(
             <div className="parent-div">
                     <div className="vert-align">                    <p>What is the estimated purchase price?</p> <br />
@@ -23,6 +28,14 @@ class WizardSix extends Component {
             </div>
         )
     }
+}
+
+function mapStateToProps( state ) {
+    const { cost } = state;
+
+    return {
+        cost
+    };
 }
 
 export default WizardSix;
